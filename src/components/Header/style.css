@@ -37,3 +37,12 @@
     color: #555555;
     padding-right: 15px;;    
 }
+
+@media only screen and (max-width: 980px) {
+    .logo {
+        width: 40%;
+    }
+    .contentCbCandidate {
+        width: 60%;
+    }
+}

@@ -45,7 +45,7 @@ export default function Personagem() {
                                         <h3>Séries</h3>
                                         {item.series.items.map((item, index2) => {
                                             return (
-                                            <p key={index2} className="characterText">&#8902; 
+                                            <p key={index2} className="characterTexts">&#8902; 
                                                 {item.name}
                                             </p>
                                             );
@@ -55,7 +55,7 @@ export default function Personagem() {
                                         <h3>Eventos</h3>
                                         {item.events.items.map((item, index2) => {
                                             return (
-                                            <p key={index2} className="characterText">&#8902; 
+                                            <p key={index2} className="characterTexts">&#8902; 
                                                 {item.name}
                                             </p>
                                             );

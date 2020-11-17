@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import GetHour from '../../components/GetHour';
 import Pagination from '../../components/Pagination';
 import './style.css';
 import search from '../../images/search.png';
