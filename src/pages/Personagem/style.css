@@ -1,0 +1,120 @@
+.mainCharacters {
+    padding-top: 10px;
+}
+.titleContainer {
+    font: normal normal bold 32px/30px PT Sans Caption;
+    letter-spacing: 0px;
+    color: #555555;
+    padding: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.back {
+    width: 100%;
+}
+.back a {
+    font: normal normal normal 14px/16px PT Sans Caption;
+    text-decoration: none;
+    color: #555555;
+    padding: 15px;
+}
+.charactersContainer {
+    display: flex;
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    flex-direction: row;
+    margin-top: 40px;
+    /* justify-content: space-between; */
+    align-items: flex-start;
+}
+.charactersContainer2 {
+    display: flex;
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.charactersContainerGrid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.gridDetails {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0px 0px 22px -12px rgba(0,0,0,0.75);
+    min-height: 370px;
+    border-radius: 5px;
+    padding: 15px;
+    flex-wrap: wrap;
+}
+
+.imageCharacter {
+    display: flex;
+    justify-content: center;
+    padding-right: 30px;
+}
+.imageCharacter img {
+    border-radius: 5px;
+    box-shadow: 0px 0px 22px -12px rgba(0,0,0,0.75);
+}
+.characterName {
+    font: normal normal bold 25px/35px PT Sans;
+    color: #555555;
+    text-align: left;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+.characterDescription {
+    min-width: 740px;
+}
+.charactersInfo {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-direction: column;
+}
+.charactersInfo h3 {
+    font: normal normal bold 20px/25px PT Sans;
+    letter-spacing: 0px;
+    color: #555555;
+    text-align: left;
+}
+
+@media only screen and (max-width: 980px) {
+    .charactersContainer {
+        flex-direction: column;
+    }
+    .characterDescription {
+        min-width: 100%;
+    }
+    .back {
+        text-align: center;
+    }
+    .titleContainer {
+        font: normal normal bold 22px/28px PT Sans Caption !important;
+    }
+    .charactersContainerGrid {
+        padding: 0 30px;
+    }
+    .imageCharacter {
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    .imageCharacter img {
+        max-width: 100%;
+        height: auto;
+    }
+    .gridDetails {
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    .characterName {
+        padding-top: 25px;
+    }
+}
