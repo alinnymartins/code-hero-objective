@@ -151,7 +151,11 @@
     color: #555555;
     text-align: left;
 }
-
+@media only screen and (max-width: 600px) {
+    .modalDialog > div {
+        width: 70%;
+    }
+}
 @media only screen and (max-width: 980px) {
     .modalDialog > div {
         width: 80%;
