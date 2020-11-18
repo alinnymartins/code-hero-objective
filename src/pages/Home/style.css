@@ -278,6 +278,9 @@
         width: 90%;
         margin: auto;
     }
+    .searchNull {
+        margin-left: 15px;
+    }
     .characterContentText {
         width: 90%;
         margin: auto;
