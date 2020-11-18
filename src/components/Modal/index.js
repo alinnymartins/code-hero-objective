@@ -17,7 +17,7 @@ export default function Modal(props) {
     return (
         <div>
             <div id="openModal" className="modalDialog">
-                <div><a href="#close" title="Close" className="close">X</a>
+                <div><a href="#close" title="Fechar" className="close">X</a>
                     <div className="mainCharacters">
                         <h1 className="titleContainer">Detalhes do Personagem</h1> 
                         {charactersModal?.map((item) => {
