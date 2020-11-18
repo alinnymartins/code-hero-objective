@@ -278,7 +278,7 @@
         width: 90%;
         margin: auto;
     }
-    .searchNull {
+    .backHome, .searchResult {
         margin-left: 15px;
     }
     .characterContentText {
