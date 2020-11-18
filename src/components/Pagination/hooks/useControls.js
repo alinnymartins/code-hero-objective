@@ -3,18 +3,25 @@ import { useState } from "react";
 export default function useControls({ totalOfPages, controlsOffset = 5 }) {
   const [currentPage, setCurrentPage] = useState(1);
 
+  function scrollTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   function next() {
     const isLastPage = currentPage >= totalOfPages;
 
     isLastPage
       ? setCurrentPage(() => totalOfPages)
       : setCurrentPage(() => currentPage + 1);
+      scrollTop();
   }
 
   function prev() {
     currentPage <= 1
       ? setCurrentPage(() => 1)
       : setCurrentPage((prevState) => prevState - 1);
+      scrollTop();
   }
 
   function goTo(targetPage) {
@@ -51,6 +58,7 @@ export default function useControls({ totalOfPages, controlsOffset = 5 }) {
     for (let page = maxLeft; page <= maxRight; page++) {
       indexes.push(page);
     }
+    scrollTop();
 
     return indexes.map((index) => (
       <button
