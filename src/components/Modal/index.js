@@ -22,8 +22,8 @@ export default function Modal(propsModal) {
                         <h1 className="titleContainer">Detalhes do Personagem</h1> 
                         {charactersModal?.map((item) => {
                             return (
-                                <>
-                                    <div key={item.id} className="charactersContainer">
+                                <div key={item.id}>
+                                    <div className="charactersContainer">
                                             <div className="imageCharacter">
                                                 <img
                                                     src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
@@ -61,9 +61,8 @@ export default function Modal(propsModal) {
                                                 </div>
                                             </div>            
                                         </div>
-                                    </div>
-                                    
-                                </>
+                                    </div>  
+                                </div>
                             )
                         })}
                     </div>
