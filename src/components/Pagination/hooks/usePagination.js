@@ -1,6 +1,6 @@
 import useControls from './useControls'
 
-export default function usePagination({ data, dataOffset, controlsOffset }) {
+function usePagination({ data, dataOffset, controlsOffset }) {
   const totalOfPages = Math.ceil(data.length / dataOffset)
   const { currentPage, renderControls, verifyCurrentPage } = useControls({
     totalOfPages,
@@ -21,3 +21,5 @@ export default function usePagination({ data, dataOffset, controlsOffset }) {
     verifyCurrentPage
   }
 }
+
+export default usePagination;

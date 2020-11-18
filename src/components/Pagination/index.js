@@ -1,7 +1,7 @@
 import React from 'react'
 import { usePagination } from './hooks'
 
-export default function FlatList(props) {
+export default function Pagination(props) {
   const { renderControls, getPaginatedData, verifyCurrentPage } = usePagination(
     props
   )

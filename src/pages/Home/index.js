@@ -1,6 +1,6 @@
-import { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
 import Pagination from '../../components/Pagination';
+import Modal from '../../components/Modal';
 import './style.css';
 import search from '../../images/search.png';
 
@@ -22,7 +22,8 @@ class Home extends Component {
         searchClick: false,
         searchValue: '',
         finalPagination: 1,
-        verifyCurrentPage: 0
+        verifyCurrentPage: 0,
+        characterId: null
       };
     }
   
@@ -99,6 +100,7 @@ class Home extends Component {
         "Carregando"
       ) : (
         <div className="main">
+          <Modal id={this.state.characterId} />
           <div className="container">
             <h1 className="title">Busca de personagens</h1>
             <h2 className="subTitle">Nome do personagem</h2>
@@ -147,52 +149,52 @@ class Home extends Component {
                   return (
                     <div className="characterItems" key={index}>
                       {isLastPage && isLastItem ? this.renderNewPagination() : ""}
-                        <Link to={`/personagem/${data.id}`}>
-                            <article className="characterItemsBox">
-                                <div className="characterContentCol imageAndName">
-                                <div className="characterContentBoxCol">
-                                    <div className="characterImg">
-                                    <img
-                                        src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
-                                        alt={data.name}
-                                        width="50"
-                                    />
-                                    </div>
-                                </div>
-                                <div className="characterContentBoxCol name">
-                                    <p className="characterTextName">{data.name}</p>
-                                </div>
-                                </div>
-                                <div className="characterContentCol series">
-                                <div className="characterContentBoxCol">
-                                    {data.series.items
-                                    .filter(function (el, index) {
-                                        return index <= 2;
-                                    })
-                                    .map((item, index2) => {
-                                        return (
-                                        <p key={index2} className="characterText">
-                                            {item.name}
-                                        </p>
-                                        );
-                                    })}
-                                </div>
-                                </div>
-                                <div className="characterContentCol events">
-                                {data.events.items
-                                    .filter(function (el, index) {
-                                    return index <= 2;
-                                    })
-                                    .map((item, index3) => {
-                                    return (
-                                        <p key={index3} className="characterText">
-                                        {item.name}
-                                        </p>
-                                    );
-                                    })}
-                                </div>
-                            </article>
-                        </Link>
+                        <a href="#openModal">
+                          <article className="characterItemsBox" onClick={() => this.setState({ characterId: data.id })}>
+                              <div className="characterContentCol imageAndName">
+                              <div className="characterContentBoxCol">
+                                  <div className="characterImg">
+                                  <img
+                                      src={`${data.thumbnail.path}.${data.thumbnail.extension}`}
+                                      alt={data.name}
+                                      width="50"
+                                  />
+                                  </div>
+                              </div>
+                              <div className="characterContentBoxCol name">
+                                  <p className="characterTextName">{data.name}</p>
+                              </div>
+                              </div>
+                              <div className="characterContentCol series">
+                              <div className="characterContentBoxCol">
+                                  {data.series.items
+                                  .filter(function (el, index) {
+                                      return index <= 2;
+                                  })
+                                  .map((item, index2) => {
+                                      return (
+                                      <p key={index2} className="characterText">
+                                          {item.name}
+                                      </p>
+                                      );
+                                  })}
+                              </div>
+                              </div>
+                              <div className="characterContentCol events">
+                              {data.events.items
+                                  .filter(function (el, index) {
+                                  return index <= 2;
+                                  })
+                                  .map((item, index3) => {
+                                  return (
+                                      <p key={index3} className="characterText">
+                                      {item.name}
+                                      </p>
+                                  );
+                                  })}
+                              </div>
+                          </article>
+                        </a>
                     </div>
                   );
                 }}
@@ -203,4 +205,4 @@ class Home extends Component {
     }
   }
   
-  export default Home;  
+  export default React.memo(Home);  
