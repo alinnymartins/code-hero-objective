@@ -123,7 +123,7 @@ class Home extends Component {
             </div>
             {this.state.searchClick === true ?
             <>
-                <buttom className="backHome" onClick={() => this.backHome()}> &#8678; Voltar para Home</buttom>
+                <button className="backHome" onClick={() => this.backHome()}> &#8678; Voltar para Home</button>
                 <div className="searchResult">
                     Resultados da Pesquisa:
                 </div>
