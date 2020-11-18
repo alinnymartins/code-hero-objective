@@ -96,9 +96,12 @@ class Home extends Component {
     };
   
     render() {
-      return this.state.characters.length === 0 ? (
-        "Carregando"
-      ) : (
+      return this.state.characters.length === 0 && this.state.search !== null ? 
+      <div className="searchNull">
+        <div className="subTitle">Sua busca não retornou retornou resultados. Verifique o texto digitado.</div>
+        <button className="backHome" onClick={() => this.backHome()}> &#8678; Voltar para Home</button>
+      </div>
+       : this.state.characters.length === 0 ? 'Carregando' : (
         <div className="main">
           <Modal id={this.state.characterId} />
           <div className="container">
@@ -167,7 +170,9 @@ class Home extends Component {
                               </div>
                               <div className="characterContentCol series">
                               <div className="characterContentBoxCol">
-                                  {data.series.items
+                                  {data.series.available === 0 ? 
+                                  <p className="characterText">Personagem não possui séries.</p>
+                                   : data.series.items
                                   .filter(function (el, index) {
                                       return index <= 2;
                                   })
@@ -181,7 +186,9 @@ class Home extends Component {
                               </div>
                               </div>
                               <div className="characterContentCol events">
-                              {data.events.items
+                              {data.events.available === 0 ? 
+                                  <p className="characterText">Personagem não possui eventos.</p>
+                                   : data.events.items
                                   .filter(function (el, index) {
                                   return index <= 2;
                                   })

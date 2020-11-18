@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import './style.css';
-export default function Modal(props) {
+export default function Modal(propsModal) {
 
     const [charactersModal, setCharactersModal] = useState([]);
 
     useEffect(() => {
-        if (!props.id) return
-        let url = `http://gateway.marvel.com/v1/public/characters/${props.id}?&ts=3164618450&apikey=e82af304dc3ec43785e87c522aa2b7b7&hash=88d05abbddffc92d5483e6d4c60c5b8b`;
+        if (!propsModal.id) return
+        let url = `http://gateway.marvel.com/v1/public/characters/${propsModal.id}?&ts=3164618450&apikey=e82af304dc3ec43785e87c522aa2b7b7&hash=88d05abbddffc92d5483e6d4c60c5b8b`;
         fetch(url)
             .then((response) => response.json())
             .then((json) => {
                 setCharactersModal(json.data.results);
             });
-    }, [props.id]);
+    }, [propsModal.id]);
 
     return (
         <div>
@@ -37,7 +37,9 @@ export default function Modal(props) {
                                             <div className="charactersInfo">
                                                 <div className="characterSeries">
                                                     <h3>Séries</h3>
-                                                    {item.series.items.map((item, index2) => {
+                                                    {item.series.available === 0 ? 
+                                                    <p className="characterText">Personagem não possui séries.</p> 
+                                                    : item.series.items.map((item, index2) => {
                                                         return (
                                                         <p key={index2} className="characterTexts">&#8902; 
                                                             {item.name}
@@ -47,7 +49,9 @@ export default function Modal(props) {
                                                 </div>
                                                 <div className="characterEvents">
                                                     <h3>Eventos</h3>
-                                                    {item.events.items.map((item, index2) => {
+                                                    {item.events.available === 0 ? 
+                                                    <p className="characterText">Personagem não possui eventos.</p> 
+                                                    : item.events.items.map((item, index2) => {
                                                         return (
                                                         <p key={index2} className="characterTexts">&#8902; 
                                                             {item.name}
