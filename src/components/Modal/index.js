@@ -23,7 +23,7 @@ export default function Modal(propsModal) {
                         {charactersModal?.map((item) => {
                             return (
                                 <>
-                                    <div className="charactersContainer">
+                                    <div key={item.id} className="charactersContainer">
                                             <div className="imageCharacter">
                                                 <img
                                                     src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
